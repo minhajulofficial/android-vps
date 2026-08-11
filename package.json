@@ -1,0 +1,26 @@
+{
+  "name": "android-vps",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Android Cloud Instance Platform — run Android instances on a Linux VPS and access them from a browser",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace apps/api",
+    "build": "npm run build --workspace apps/api",
+    "start": "npm run start --workspace apps/api",
+    "lint": "npm run lint --workspace apps/api",
+    "typecheck": "npm run typecheck --workspace apps/api",
+    "test": "npm run test --workspace apps/api",
+    "test:unit": "npm run test:unit --workspace apps/api",
+    "test:integration": "npm run test:integration --workspace apps/api",
+    "e2e": "npm run e2e --workspace apps/api",
+    "seed:admin": "npm run seed:admin --workspace apps/api",
+    "db:migrate": "npm run db:migrate --workspace apps/api"
+  },
+  "license": "MIT"
+}

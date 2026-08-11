@@ -1,0 +1,36 @@
+# --- Secrets: never commit these ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+!infrastructure/nginx/*.example
+adbkey*
+secrets/
+
+# --- Node ---
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+npm-debug.log*
+
+# --- Runtime data ---
+data/
+instances/
+*.qcow2
+*.img
+*.iso
+apks/
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Logs ---
+logs/
+*.log

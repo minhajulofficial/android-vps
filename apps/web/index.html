@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Android VPS — Control Panel</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Login view -->
+  <section id="login-view" class="login-wrap hidden">
+    <form id="login-form" class="login-card">
+      <h1>Android VPS</h1>
+      <p class="muted">Cloud Android instances, from your browser</p>
+      <label>Username<input id="login-username" name="username" autocomplete="username" required /></label>
+      <label>Password<input id="login-password" type="password" name="password" autocomplete="current-password" required /></label>
+      <p id="login-error" class="error hidden"></p>
+      <button type="submit" class="btn primary block">Sign in</button>
+    </form>
+  </section>
+
+  <!-- App view -->
+  <section id="app-view" class="hidden">
+    <header class="topbar">
+      <div class="brand">Android VPS <span class="pill" id="drv-pill">…</span></div>
+      <nav>
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="instances">Instances</button>
+      </nav>
+      <div class="right">
+        <span id="user-label" class="muted"></span>
+        <button id="logout-btn" class="btn ghost">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- OVERVIEW -->
+      <div id="tab-overview" class="tab-panel">
+        <div class="grid cards">
+          <div class="card"><span class="stat-label">Server status</span><div class="stat" id="stat-status">…</div></div>
+          <div class="card"><span class="stat-label">CPU usage</span><div class="stat" id="stat-cpu">…</div></div>
+          <div class="card"><span class="stat-label">RAM used</span><div class="stat" id="stat-ram">…</div></div>
+          <div class="card"><span class="stat-label">Disk used</span><div class="stat" id="stat-disk">…</div></div>
+        </div>
+        <div class="grid cards">
+          <div class="card"><span class="stat-label">Instances total</span><div class="stat" id="stat-total">…</div></div>
+          <div class="card"><span class="stat-label">Running</span><div class="stat good" id="stat-running">…</div></div>
+          <div class="card"><span class="stat-label">Stopped</span><div class="stat muted" id="stat-stopped">…</div></div>
+          <div class="card"><span class="stat-label">Uptime</span><div class="stat" id="stat-uptime">…</div></div>
+        </div>
+        <div class="card">
+          <span class="stat-label">Runtime driver</span>
+          <pre id="runtime-detail" class="mono">loading…</pre>
+        </div>
+      </div>
+
+      <!-- INSTANCES -->
+      <div id="tab-instances" class="tab-panel hidden">
+        <div class="row between">
+          <h2>Android Instances</h2>
+          <button id="new-instance-btn" class="btn primary">+ New instance</button>
+        </div>
+        <div id="create-form-wrap" class="hidden card">
+          <h3>Create instance</h3>
+          <form id="create-form" class="form-grid">
+            <label>Name<input id="cf-name" placeholder="android-02" required /></label>
+            <label>vCPU<input id="cf-cpu" type="number" min="1" max="8" value="2" /></label>
+            <label>RAM (MB)<input id="cf-mem" type="number" min="512" step="512" value="2048" /></label>
+            <label>Storage (GB)<input id="cf-disk" type="number" min="1" value="20" /></label>
+            <label>Driver
+              <select id="cf-driver">
+                <option value="">auto</option>
+                <option value="docker">docker</option>
+                <option value="qemu">qemu</option>
+              </select>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Create</button>
+              <button type="button" id="cf-cancel" class="btn ghost">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div id="instances-empty" class="muted hidden">No instances yet. Create your first one.</div>
+        <div id="instances-list" class="instances"></div>
+      </div>
+    </main>
+
+    <footer class="muted small">android-vps · <a href="/api/health" target="_blank">health</a></footer>
+  </section>
+
+  <!-- Logs modal -->
+  <div id="logs-modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="row between">
+        <h3 id="logs-title">Logs</h3>
+        <button id="logs-close" class="btn ghost">Close</button>
+      </div>
+      <pre id="logs-body" class="mono logs"></pre>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
