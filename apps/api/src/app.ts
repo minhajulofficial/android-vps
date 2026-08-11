@@ -94,8 +94,6 @@ export async function buildApp(configOverrides: Partial<AppConfig> = {}): Promis
     index: false
   });
   app.get('/', async (_req, reply) => reply.sendFile('index.html'));
-  app.get('/index.html', async (_req, reply) => reply.sendFile('index.html'));
-  app.get('/console.html', async (_req, reply) => reply.sendFile('console.html'));
   await app.register(fastifyWebsocket);
 
   /* ------------------------------------------------- routes */
