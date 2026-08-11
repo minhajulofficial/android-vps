@@ -24,6 +24,9 @@ instances/
 *.iso
 apks/
 
+# --- noVNC client (fetched by scripts/fetch-novnc.sh at deploy time) ---
+apps/web/vnc/
+
 # --- OS / editors ---
 .DS_Store
 Thumbs.db
