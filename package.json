@@ -20,6 +20,7 @@
     "test:integration": "npm run test:integration --workspace apps/api",
     "e2e": "npm run e2e --workspace apps/api",
     "seed:admin": "npm run seed:admin --workspace apps/api",
+    "reset:admin": "npm run reset:admin --workspace apps/api",
     "db:migrate": "npm run db:migrate --workspace apps/api"
   },
   "license": "MIT"

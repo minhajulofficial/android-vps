@@ -18,6 +18,7 @@
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
     "seed:admin": "tsx src/seed-admin.ts",
+    "reset:admin": "tsx reset-admin.ts",
     "db:migrate": "tsx src/db/migrate.ts"
   },
   "dependencies": {
